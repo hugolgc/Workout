@@ -13,7 +13,7 @@ import './assets/style.css'
         <RouterLink :to="{ name: 'Home' }">Statistiques</RouterLink>
         <RouterLink :to="{ name: 'Muscles' }">Muscles</RouterLink>
         <RouterLink :to="{ name: 'Exercises' }">Exercices</RouterLink>
-        <RouterLink :to="{ name: 'Workout' }">Ateliers</RouterLink>
+        <RouterLink :to="{ name: 'Workshop' }">Ateliers</RouterLink>
       </nav>
     </footer>
   </div>

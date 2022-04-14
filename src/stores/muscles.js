@@ -9,6 +9,7 @@ export const useMusclesStore = defineStore({
   getters: {
     getAll: state => async () => {
       state.muscles = await musclesService.getAll()
-    }
+    },
+    getOne: state => id => state.muscles.find(muscle => muscle.id === id)
   }
 })

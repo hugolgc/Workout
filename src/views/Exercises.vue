@@ -27,7 +27,7 @@ exercisesStore.getAll()
 </script>
 
 <template>
-  <h1 class="text-4xl font-semibold">Exercices</h1>
+  <h1 class="text-4xl font-semibold">Exercices - Test</h1>
   <form @submit.prevent="handleSubmit()" method="post" class="pt-12 pb-16 space-y-4">
     <select v-model="muscleId" class="w-full px-4 py-3 bg-zinc-800 rounded-lg appearance-none">
       <option :value="null">Choisir un muscle ici</option>
@@ -44,10 +44,10 @@ exercisesStore.getAll()
   <ul v-if="exercisesStore.exercises.length" class="space-y-4">
     <li v-for="exercise in exercisesStore.exercises" class="flex justify-between px-4 py-3 bg-zinc-800 rounded-lg">
       <span>{{ exercise.fields.name }}</span>
-      <span class="text-white/50">{{ 'Dos' }}</span>
+      <span class="text-white/50">{{ musclesStore.getOne(exercise.fields.muscle[0]).fields.name }}</span>
     </li>
   </ul>
   <div v-else class="space-y-4">
-    <div v-for="muscle in Array(6)" class="h-12 bg-zinc-800 rounded-lg"></div>
+    <div v-for="loader in Array(6)" class="h-12 bg-zinc-800 rounded-lg"></div>
   </div>
 </template>

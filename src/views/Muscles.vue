@@ -33,10 +33,10 @@ musclesStore.getAll()
   <ul v-if="musclesStore.muscles.length" class="space-y-4">
     <li v-for="muscle in musclesStore.muscles" class="flex justify-between px-4 py-3 bg-zinc-800 rounded-lg">
       <span>{{ muscle.fields.name }}</span>
-      <span class="text-white/50">{{ '3 exercices' }}</span>
+      <span class="text-white/50">{{ muscle.fields.exercises.length }} exercices</span>
     </li>
   </ul>
   <div v-else class="space-y-4">
-    <div v-for="muscle in Array(6)" class="h-12 bg-zinc-800 rounded-lg"></div>
+    <div v-for="loader in Array(6)" class="h-12 bg-zinc-800 rounded-lg"></div>
   </div>
 </template>
