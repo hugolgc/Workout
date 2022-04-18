@@ -3,9 +3,17 @@ import { repositoryConfig } from '../config/repository'
 const workshopsRepository = repositoryConfig.get('/workshops')
 
 export const workshopsService = {
-  async create(name) {
+  async create({ exerciceId, series, weight, rest, repetitions, date }) {
     try {
-      const workshops = await workshopsRepository.post({ records: [{ fields: { name: name }}]})
+      const workshops = await workshopsRepository.post({ records: [{ fields: {
+        exercice: [exerciceId],
+        series: series,
+        weight: weight,
+        rest: rest,
+        repetitions: repetitions,
+        user: ['recOl0bbTVrtqMahT'],
+        date: date
+      }}]})
       return workshops.records[0]
     } catch (e) {
       console.error(e)

@@ -1,10 +1,9 @@
 <script setup>
 import moment from 'moment'
-import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 import { useWorkshopsStore } from '../stores/workshops'
 
 const workshopStore = useWorkshopsStore()
-const workshopSelected = ref(null)
 
 function getDate(date) {
   moment.locale('fr')
@@ -16,8 +15,10 @@ workshopStore.getAll()
 
 <template>
   <h1 class="text-4xl font-semibold">Ateliers</h1>
-
-
+  <RouterLink
+    :to="{ name: 'Exercises' }"
+    class="block mt-12 mb-16 px-4 py-3 bg-zinc-800 rounded-lg leading-relaxed"
+  >Cliquer sur un exercice pour ajouter un atelier.</RouterLink>
   <ul v-if="workshopStore.workshops.length" class="space-y-4">
     <li v-for="workshop in workshopStore.workshops" class="flex justify-between px-4 py-3 bg-zinc-800 rounded-lg">
       <span>{{ getDate(workshop.fields.date) }}</span>
@@ -30,6 +31,6 @@ workshopStore.getAll()
     </li>
   </ul>
   <div v-else class="space-y-4">
-    <div v-for="loader in Array(6)" class="h-12 bg-zinc-800 rounded-lg"></div>
+    <div v-for="loader in Array(6)" class="h-12 bg-zinc-800 rounded-lg animate-pulse"></div>
   </div>
 </template>
